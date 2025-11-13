@@ -1,18 +1,20 @@
 <?php
+// Database connection (supports DATABASE_URL or DB_* env)
 $databaseUrl = getenv('DATABASE_URL');
+
 if ($databaseUrl) {
     $parts = parse_url($databaseUrl);
-    $DB_HOST = $parts['host'] ?? 'localhost';
+    $DB_HOST = $parts['host'] ?? 'dpg-d4ar9ubipnbc73agindg-a';
     $DB_PORT = $parts['port'] ?? 5432;
-    $DB_USER = $parts['user'] ?? 'postgres';
-    $DB_PASS = $parts['pass'] ?? '';
-    $DB_NAME = ltrim($parts['path'] ?? '/postgres', '/');
+    $DB_USER = $parts['user'] ?? 'jadeja';
+    $DB_PASS = $parts['pass'] ?? 'XjJZMwDxBFiZyjnpHwGErWZKUAK4sA1X';
+    $DB_NAME = ltrim($parts['path'] ?? '/cbt_s2tr', '/');
 } else {
-    $DB_HOST = getenv('DB_HOST') ?: 'localhost';
+    $DB_HOST = getenv('DB_HOST') ?: 'dpg-d4ar9ubipnbc73agindg-a';
     $DB_PORT = getenv('DB_PORT') ?: 5432;
-    $DB_USER = getenv('DB_USER') ?: 'postgres';
-    $DB_PASS = getenv('DB_PASS') ?: '';
-    $DB_NAME = getenv('DB_NAME') ?: 'cbt_db';
+    $DB_USER = getenv('DB_USER') ?: 'jadeja';
+    $DB_PASS = getenv('DB_PASS') ?: 'XjJZMwDxBFiZyjnpHwGErWZKUAK4sA1X';
+    $DB_NAME = getenv('DB_NAME') ?: 'cbt_s2tr';
 }
 try {
     $dsn = "pgsql:host={$DB_HOST};port={$DB_PORT};dbname={$DB_NAME};";
