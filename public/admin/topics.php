@@ -1,0 +1,5 @@
+<?php require_once __DIR__.'/../../config/db.php'; require_admin(); if($_SERVER['REQUEST_METHOD']==='POST'){ $name=trim($_POST['name']); $desc=trim($_POST['description']); if($name) $pdo->prepare('INSERT INTO topics (name,description) VALUES (?,?)')->execute([$name,$desc]); header('Location:/admin/topics.php'); exit; } require_once __DIR__.'/../../includes/header.php'; $rows=$pdo->query('SELECT * FROM topics ORDER BY created_at DESC')->fetchAll(PDO::FETCH_ASSOC); ?>
+<h3>Topics</h3>
+<table class="table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><?php foreach($rows as $r): ?><tr><td><?php echo e($r['name']); ?></td><td><?php echo e($r['description']); ?></td></tr><?php endforeach; ?></tbody></table>
+<form method="post" class="mt-3"><input name="name" class="form-control mb-2" placeholder="Topic name" required><textarea name="description" class="form-control mb-2" placeholder="Description"></textarea><button class="btn btn-primary">Create Topic</button></form>
+<?php require_once __DIR__.'/../../includes/footer.php'; ?>

@@ -1,0 +1,3 @@
+<?php require_once __DIR__.'/../config/db.php'; if(session_status()===PHP_SESSION_NONE) session_start(); require_once __DIR__.'/../includes/header.php'; $score=intval($_GET['score']??0); $total=intval($_GET['total']??0); ?>
+<div class="card p-4"><h3>Result</h3><p><strong><?php echo $score; ?></strong> / <?php echo $total; ?></p><a class="btn btn-primary" href="/user/dashboard.php">Back</a></div>
+<?php require_once __DIR__.'/../includes/footer.php'; ?>

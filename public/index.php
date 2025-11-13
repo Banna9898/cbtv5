@@ -1,0 +1,1 @@
+<?php require_once __DIR__.'/../includes/header.php'; echo '<div class="p-4 bg-white shadow-sm rounded">Welcome to CBT v5</div>'; require_once __DIR__.'/../includes/footer.php'; ?>

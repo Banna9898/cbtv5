@@ -1,0 +1,1 @@
+console.log('CBT v5 assets loaded');

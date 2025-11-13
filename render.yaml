@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: cbt-v5
+    env: docker
+    plan: free
+    buildCommand: docker build -t cbt-v5 .
+    startCommand: docker run -p 10000:80 cbt-v5
+    autoDeploy: true
